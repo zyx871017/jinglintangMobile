@@ -1,16 +1,13 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import { useEffect } from 'react';
 import { RightOutlined } from '@ant-design/icons'
 import Banner from '@/components/Banner';
 import styles from './index.module.scss';
 import bannerImg from '@/public/bannerImg.jpeg';
 import bannerImg1 from '@/public/bannerImg1.jpeg';
-import { useStore } from '@/store';
 import hotIcon from '@/public/hot.png';
 import mastIcon from '@/public/mast.png';
 import { hotTopicList, mastTopicList, recommendList } from '@/constant/indexPageData';
-import Head from 'next/head';
 
 export type topicType = {
   id: number;
@@ -39,10 +36,6 @@ export async function getServerSideProps() {
 
 export default function Home(props: IProps) {
   const { hotTopicList, mastTopicList, recommendList: [mainTopic, ...otherTopicList] } = props;
-  const store = useStore();
-  useEffect(() => {
-    store.user.setUserInfo({ nickname: 'test' });
-  }, []);
   const data = [{
     title: '测试',
     image: bannerImg
@@ -62,7 +55,7 @@ export default function Home(props: IProps) {
           <div className={styles.titleContent}>
             <div className={styles.leftContent}>
               <Image src={hotIcon} className={styles.cardIcon} alt="" />
-              <span>热门推荐</span>
+              <span className={styles.title}>热门推荐</span>
             </div>
             <div className={styles.rightContent}>
               <Link className={styles.moreLink} href="/topic/allTopic">全部商家</Link>
@@ -70,7 +63,7 @@ export default function Home(props: IProps) {
             </div>
           </div>
           <div className={styles.cardContent}>
-            {hotTopicList.map(topic => <div className={styles.topicContent} key={topic.id}>
+            {hotTopicList.map(topic => <Link href={`/topic/${topic.id}`} className={styles.topicContent} key={topic.id}>
               <div className={styles.topicImage}>
                 <Image width={170} height={96} src={topic.image} alt=""></Image>
               </div>
@@ -84,9 +77,11 @@ export default function Home(props: IProps) {
                   <span className={styles.address}>{topic.address}</span>
                 </div>
               </div>
-            </div>)}
+            </Link>)}
           </div>
         </div>
+      </div>
+      <div className={styles.rowCard}>
         <div className={styles.hotCard}>
           <div className={styles.titleContent}>
             <div className={styles.leftContent}>
@@ -99,7 +94,7 @@ export default function Home(props: IProps) {
             </div>
           </div>
           <div className={styles.cardContent}>
-            {mastTopicList.map(topic => <div className={styles.topicContent} key={topic.id}>
+            {mastTopicList.map(topic => <Link href={`/topic/${topic.id}`} className={styles.topicContent} key={topic.id}>
               <div className={styles.topicImage}>
                 <Image width={170} height={96} src={topic.image} alt=""></Image>
               </div>
@@ -113,7 +108,7 @@ export default function Home(props: IProps) {
                   <span className={styles.address}>{topic.address}</span>
                 </div>
               </div>
-            </div>)}
+            </Link>)}
           </div>
         </div>
       </div>
@@ -130,9 +125,7 @@ export default function Home(props: IProps) {
         </div>
         <div className={styles.topicContent}>
           <div className={styles.mainCard}>
-            <div className={styles.mainCardImage}>
-              <Image width={440} height={340} src={mainTopic.image} alt="" ></Image>
-            </div>
+            <Image className={styles.mainImage} src={mainTopic.image} alt="" ></Image>
             <div className={styles.mainCardInfo}>
               <div className={styles.mainCardTitle}>{mainTopic.title}</div>
               <div className={styles.mainInfoRow}>
@@ -145,10 +138,8 @@ export default function Home(props: IProps) {
             </div>
           </div>
           <div className={styles.otherTopicContent}>
-            {otherTopicList.map(topic => <div key={topic.id} className={styles.otherCard}>
-              <div className={styles.otherCardImage}>
-                <Image width={220} height={165} src={topic.image} alt="" ></Image>
-              </div>
+            {otherTopicList.map(topic => <Link href={`/topic/${topic.id}`} key={topic.id} className={styles.otherCard}>
+              <Image className={styles.otherCardImage} src={topic.image} alt="" ></Image>
               <div className={styles.otherCardInfo}>
                 <div className={styles.otherCardTitle}>{topic.title}</div>
                 <div className={styles.otherInfoRow}>
@@ -159,7 +150,7 @@ export default function Home(props: IProps) {
                   <span className={styles.otherAddress}>{topic.address}</span>
                 </div>
               </div>
-            </div>)}
+            </Link>)}
           </div>
         </div>
       </div>

@@ -25,7 +25,9 @@ const Banner = (props: IProps) => {
     {data.map((item, index) => <div className={classNames({
       [styles.bannerItem]: true,
       [styles.active]: activeIndex === index
-    })} key={item.title}><Image className={styles.bannerImage} alt="" src={item.image} /></div>)}
+    })} key={item.title}>
+      <Image layout="fixed" className={styles.bannerImage} alt="" src={item.image} />
+    </div>)}
     <div className={styles.bannerDot}>
       {data.map((_, index) => <i key={index} className={classNames({
         [styles.dotIcon]: true,

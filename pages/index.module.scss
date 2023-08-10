@@ -1,13 +1,13 @@
 .mainContent {
-  max-width: 1200px;
-  margin: 0 auto;
+  width: 100%;
+  overflow: hidden;
 
   .rowCard {
-    margin-top: 25px;
-    display: flex;
+    margin-top: .2rem;
 
     .hotCard {
-      margin-right: 10px;
+      padding: .32rem 0;
+      margin-right: .2rem;
       background-color: #FFF;
       width: 100%;
 
@@ -16,20 +16,32 @@
       }
 
       .titleContent {
-        margin: 20px 0;
-        padding: 0 20px;
+        margin: 0 0 .2rem;
         display: flex;
-        line-height: 30px;
-        font-size: 20px;
+        padding: 0 .32rem;
+        line-height: .6rem;
+        font-size: .4rem;
         font-weight: 400;
         justify-content: space-between;
 
+        .leftContent {
+          height: .6rem;
+          display: flex;
+
+          .title {
+            line-height: .6rem;
+          }
+        }
+
         .cardIcon {
-          margin-right: 10px;
+          margin-right: .1rem;
         }
 
         .rightContent {
           cursor: pointer;
+          height: .6rem;
+          line-height: .6rem;
+          display: flex;
 
           &:hover {
             .moreLink {
@@ -42,17 +54,21 @@
           }
 
           .moreLink {
-            font-size: 14px;
+            font-size: .28rem;
             color: #999;
             text-decoration: none;
-            margin-right: 4px;
+            margin-right: .08rem;
+            line-height: .6rem;
+            ;
             transition: color .3s linear;
           }
 
           .moreIcon {
             color: #999;
-            font-size: 14px;
+            font-size: .28rem;
             transition: color .3s linear;
+            height: .32rem;
+            margin-top: .14rem;
           }
         }
       }
@@ -60,20 +76,21 @@
       .cardContent {
         display: flex;
         flex-wrap: wrap;
-        padding: 0 10px 10px;
+        padding: 0 .12rem;
+        justify-content: space-around;
 
         .topicContent {
-          width: 170px;
+          width: 3.32rem;
           overflow: hidden;
-          margin: 0 10px 10px;
+          margin-bottom: .2rem;
 
           &:hover {
             cursor: pointer;
           }
 
           .topicImage {
-            width: 170px;
-            height: 96px;
+            width: 3.32rem;
+            height: 1.92rem;
             transition: transform .3s linear;
 
             &:hover {
@@ -82,36 +99,37 @@
           }
 
           .topicInfoContent {
-            margin-top: 12px;
+            margin-top: .2rem;
 
             .title {
-              font-size: 16px;
+              font-size: .3rem;
               color: #333;
               text-overflow: ellipsis;
               white-space: nowrap;
               overflow: hidden;
-              line-height: 20px;
-              height: 20px;
+              line-height: .4rem;
+              height: .4rem;
             }
 
             .infoRow {
-              margin-top: 6px;
-              height: 14px;
-              line-height: 14px;
+              margin-top: .12rem;
+              height: .28rem;
+              line-height: .28rem;
 
               .infoRate {
-                font-size: 14px;
+                font-size: .28rem;
+                float: left;
                 color: #00afc7;
               }
 
               .infoComment {
-                font-size: 11px;
+                font-size: .22rem;
                 color: #999;
                 float: right;
               }
 
               .address {
-                font-size: 11px;
+                font-size: .22rem;
                 color: #999;
                 float: right;
               }
@@ -125,20 +143,20 @@
   .recommendCard {
     width: 100%;
     background-color: #FFF;
-    margin-top: 25px;
+    margin-top: .3rem;
     overflow: hidden;
 
     .titleContent {
-      margin: 20px 0;
-      padding: 0 20px;
+      margin: .3rem 0 .2rem;
+      padding: 0 .4rem;
       display: flex;
-      line-height: 30px;
-      font-size: 20px;
+      line-height: .6rem;
+      font-size: .4rem;
       font-weight: 400;
       justify-content: space-between;
 
       .cardIcon {
-        margin-right: 10px;
+        margin-right: .2rem;
       }
 
       .rightContent {
@@ -155,79 +173,83 @@
         }
 
         .moreLink {
-          font-size: 14px;
+          font-size: .28rem;
           color: #999;
           text-decoration: none;
-          margin-right: 4px;
+          margin-right: .08rem;
           transition: color .3s linear;
         }
 
         .moreIcon {
           color: #999;
-          font-size: 14px;
+          font-size: .28rem;
           transition: color .3s linear;
         }
       }
     }
 
     .topicContent {
-      padding: 0 10px 10px;
-      display: flex;
+      padding: 0 .12rem .2rem;
 
       .mainCard {
-        margin: 0 10px 10px;
-        width: 440px;
-        height: 340px;
+        margin: 0 .16rem .2rem;
+        height: 4rem;
         overflow: hidden;
         cursor: pointer;
         position: relative;
 
+        .mainImage {
+          height: 4rem;
+          width: 100%;
+        }
+
         &:hover {
           .mainCardInfo {
             position: absolute;
-            top: 250px;
+            top: 2rem;
           }
         }
 
         .mainCardInfo {
           position: absolute;
-          top: 300px;
+          top: 3.3rem;
           background: linear-gradient(rgba(0, 0, 0, .1), rgba(0, 0, 0, .8));
           width: 100%;
-          padding: 10px;
+          padding: .2rem;
           color: #FFF;
           transition: top .2s linear;
 
           .mainCardTitle {
-            font-size: 16px;
-            height: 20px;
-            line-height: 20px;
+            font-size: .32rem;
+            height: .4rem;
+            line-height: .4rem;
             color: #FFF;
             overflow: hidden;
             text-overflow: ellipsis;
             white-space: nowrap;
-            margin-bottom: 6px;
+            margin-bottom: .12rem;
           }
 
           .mainInfoRow {
-            margin-bottom: 6px;
-            line-height: 20px;
-            height: 20px;
+            margin-bottom: .12rem;
+            line-height: .4rem;
+            height: .4rem;
 
             .mainInfoRate {
-              font-size: 14px;
+              font-size: .28rem;
+              float: left;
               color: #00afc7;
             }
 
             .mainInfoComment {
-              font-size: 11px;
+              font-size: .22rem;
               float: right;
             }
 
             .mainAddress {
-              height: 14px;
-              font-size: 11px;
-              line-height: 14px;
+              height: .28rem;
+              font-size: .22rem;
+              line-height: .28rem;
             }
           }
         }
@@ -237,61 +259,69 @@
         flex: 1;
         display: flex;
         flex-wrap: wrap;
+        justify-content: space-around;
 
         .otherCard {
-          width: 220px;
-          height: 165px;
-          margin: 0 10px 10px;
+          width: 3.32rem;
+          height: 2rem;
           overflow: hidden;
+          margin-bottom: .2rem;
           cursor: pointer;
           position: relative;
+
+          .otherCardImage {
+            width: 3.32rem;
+            height: 2rem;
+          }
 
           &:hover {
             .otherCardInfo {
               position: absolute;
-              top: 75px;
+              top: .5rem;
             }
           }
 
           .otherCardInfo {
             position: absolute;
-            top: 125px;
+            top: 1.38rem;
             background: linear-gradient(rgba(0, 0, 0, .1), rgba(0, 0, 0, .8));
             width: 100%;
-            padding: 10px;
+            padding: .2rem;
             color: #FFF;
             transition: top .2s linear;
 
             .otherCardTitle {
-              font-size: 16px;
-              height: 20px;
-              line-height: 20px;
+              font-size: .28rem;
+              height: .4rem;
+              line-height: .4rem;
               color: #FFF;
               overflow: hidden;
               text-overflow: ellipsis;
               white-space: nowrap;
-              margin-bottom: 6px;
+              margin-bottom: .12rem;
             }
 
             .otherInfoRow {
-              margin-bottom: 6px;
-              line-height: 20px;
-              height: 20px;
+              margin-bottom: .12rem;
+              line-height: .3rem;
+              height: .3rem;
 
               .otherInfoRate {
-                font-size: 14px;
+                font-size: .28rem;
                 color: #00afc7;
+                float: left;
               }
 
               .otherInfoComment {
-                font-size: 11px;
+                font-size: .22rem;
                 float: right;
               }
 
               .otherAddress {
-                height: 14px;
-                font-size: 11px;
-                line-height: 14px;
+                height: .28rem;
+                font-size: .22rem;
+                line-height: .28rem;
+                float: left;
               }
             }
           }

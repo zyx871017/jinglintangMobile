@@ -1,0 +1,1 @@
+!function (b) { var a = b.clientWidth / 7.5; b.style.fontSize = a + "px"; var c = +window.getComputedStyle(b).fontSize.slice(0, -2); c !== a && (b.style.fontSize = a * a / c + "px") }(document.documentElement);

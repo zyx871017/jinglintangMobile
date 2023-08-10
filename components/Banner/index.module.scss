@@ -1,12 +1,11 @@
 .bannerContent {
-  max-width: 1200px;
-  height: 350px;
+  height: 1.92rem;
   overflow: hidden;
   position: relative;
 
   .bannerItem {
-    max-width: 1200px;
-    height: 350px;
+    width: 100%;
+    height: 1.92rem;
     position: absolute;
     top: 0;
     left: 0;
@@ -18,26 +17,26 @@
     }
 
     .bannerImage {
-      max-width: 1200px;
-      height: 350px;
+      height: 1.92rem;
+      width: 100%;
     }
   }
 
   .bannerDot {
     position: absolute;
-    bottom: 10px;
+    bottom: .2rem;
     left: 50%;
     transform: translateX(-50%);
     display: flex;
 
     .dotIcon {
-      width: 16px;
-      height: 16px;
+      width: .16rem;
+      height: .16rem;
       border-radius: 8px;
       background-color: #FFF;
       opacity: .7;
       display: block;
-      margin-left: 10px;
+      margin-left: .1rem;
       cursor: pointer;
 
       &.active {
