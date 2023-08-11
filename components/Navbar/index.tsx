@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import classNames from 'classnames';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
 import styles from './index.module.scss';
@@ -9,12 +8,9 @@ const Navbar = () => {
   const { pathname } = useRouter();
   const [search, setSearch] = useState('');
 
-  const goBack = () => {
-    window.history.go(-1);
-  }
   return <header className={styles.navbar}>
     <div className={styles.navContent}>
-      {pathname === '/' ? null : <LeftOutlined onClick={goBack} className={styles.backIcon} />}
+      {pathname === '/' ? null : <Link href="/"><LeftOutlined className={styles.backIcon} /></Link>}
       <div className={styles.logoContent}>京林堂</div>
     </div>
     <div className={styles.navMenuContent}>

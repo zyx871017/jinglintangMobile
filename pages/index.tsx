@@ -8,6 +8,10 @@ import bannerImg1 from '@/public/bannerImg1.jpeg';
 import hotIcon from '@/public/hot.png';
 import mastIcon from '@/public/mast.png';
 import { hotTopicList, mastTopicList, recommendList } from '@/constant/indexPageData';
+import allTopicImage from '@/public/allTopic.png';
+import couponImage from '@/public/coupon.png';
+import joinUsImage from '@/public/joinUs.png';
+import commentImage from '@/public/comment.png';
 
 export type topicType = {
   id: number;
@@ -50,6 +54,32 @@ export default function Home(props: IProps) {
   return (
     <div className={styles.mainContent}>
       <Banner data={data} />
+      <div className={styles.navContent}>
+        <Link className={styles.navButton} href="/topic/allTopic" >
+          <div className={styles.navIcon}>
+            <Image className={styles.navImage} alt="" src={allTopicImage}></Image>
+          </div>
+          <span className={styles.navText}>所有商家</span>
+        </Link>
+        <Link className={styles.navButton} href="/coupon" >
+          <div className={styles.navIcon}>
+            <Image className={styles.navImage} alt="" src={couponImage}></Image>
+          </div>
+          <span className={styles.navText}>优惠</span>
+        </Link>
+        <Link className={styles.navButton} href="/joinUs" >
+          <div className={styles.navIcon}>
+            <Image className={styles.navImage} alt="" src={joinUsImage}></Image>
+          </div>
+          <span className={styles.navText}>加入</span>
+        </Link>
+        <Link className={styles.navButton} href="/commentList" >
+          <div className={styles.navIcon}>
+            <Image className={styles.navImage} alt="" src={commentImage}></Image>
+          </div>
+          <span className={styles.navText}>评论</span>
+        </Link>
+      </div>
       <div className={styles.rowCard}>
         <div className={styles.hotCard}>
           <div className={styles.titleContent}>

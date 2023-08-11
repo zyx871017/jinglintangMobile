@@ -50,12 +50,11 @@
 
   .listContent {
     background-color: #FFF;
-    margin-top: .3rem;
 
     .topicContent {
       display: flex;
       padding: .3rem .4rem;
-      border-bottom: .02rem solid #F0F0F0;
+      border-bottom: 1px solid #F0F0F0;
       color: #999;
 
       &:hover {
@@ -97,26 +96,12 @@
         display: block;
       }
 
-      .infoComment{
-        margin-right: .2rem;
-      }
-
       .infoComment,
-      .infoAddress,
-      .couponTime {
+      .infoAddress {
         font-size: .24rem;
         list-style: .52rem;
         color: #999;
         cursor: pointer;
-      }
-
-      .coupon {
-        font-size: .24rem;
-        background-color: #00afc7;
-        color: #FFF;
-        padding: 0 .12rem;
-        height: .52rem;
-        line-height: .52rem;
       }
     }
   }

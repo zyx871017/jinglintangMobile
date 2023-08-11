@@ -5,11 +5,13 @@ import CommentItem from "@/components/CommentItem";
 import Pagination from "@/components/Pagination";
 
 export async function getServerSideProps(ctx: any) {
-  const query = ctx.query
+  const query = ctx.query;
   let pageNo = 1;
+
   if (!isNaN(Number(query.pageNo))) {
     pageNo = Number(query.pageNo);
   }
+
   return {
     props: {
       commentList,

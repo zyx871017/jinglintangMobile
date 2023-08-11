@@ -1,7 +1,15 @@
 .pageContent {
-  text-align: right;
-  margin-top: 10px;
+  display: flex;
+  margin-top: .2rem;
+  justify-content: center;
   color: #333;
+
+  .pageText{
+    font-size: .3rem;
+    line-height: .52rem;
+    color: #666;
+    margin-left: .12rem;
+  }
 
   .pageButton {
     padding: 0 8px;

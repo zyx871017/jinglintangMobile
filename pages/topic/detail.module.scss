@@ -1,0 +1,191 @@
+.pageContent {
+  // 详情页样式
+
+  .rightContent {
+    width: 100%;
+    height: 4.4rem;
+    background-color: #eee;
+    position: relative;
+
+    img {
+      width: 100%;
+      height: 4.4rem;
+    }
+
+    .leftButton,
+    .rightButton {
+      display: block;
+    }
+
+    .leftButton {
+      position: absolute;
+      left: .12rem;
+      top: 50%;
+      font-size: .72rem;
+      color: #FFF;
+      transform: translateY(-50%);
+      opacity: .8;
+      cursor: pointer;
+    }
+
+    .rightButton {
+      position: absolute;
+      right: .12rem;
+      top: 50%;
+      font-size: .72rem;
+      color: #FFF;
+      transform: translateY(-50%);
+      opacity: .8;
+      cursor: pointer;
+    }
+
+    .indexContent {
+      height: .4rem;
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      background-color: rgba(0, 0, 0, .6);
+      font-size: .24rem;
+      color: #FFF;
+      line-height: .4rem;
+      opacity: .6;
+      text-align: center;
+    }
+  }
+
+  .infoContent {
+    background-color: #FFF;
+    padding: .3rem;
+
+    .titleContent {
+      height: .6rem;
+      color: #333;
+      font-weight: 700;
+      line-height: .6rem;
+      font-size: .4rem;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      overflow: hidden;
+    }
+
+    .infoRow {
+      margin-top: .1rem;
+      height: .4rem;
+      line-height: .4rem;
+      font-size: .28rem;
+      color: #666;
+
+      .infoRate {
+        color: #00afc7;
+        font-size: .28rem;
+        margin-right: .2rem;
+      }
+
+      .infoComment {
+        color: #666;
+      }
+    }
+
+    .baseInfo {
+      min-width: 50vw;
+      line-height: .4rem;
+    }
+
+    .divider {
+      height: .02rem;
+      background-color: #ddd;
+      margin-top: .2rem;
+      margin-bottom: .2rem;
+      width: 100%;
+    }
+
+    .detailContent {
+      color: #333;
+      font-size: .28rem;
+    }
+  }
+
+  .commentContent {
+    margin-top: .4rem;
+    background-color: #FFF;
+
+    .titleContent {
+      font-size: .32rem;
+      color: #333;
+      font-weight: 700;
+      margin-bottom: .3rem;
+      border-bottom: .02rem solid #ddd;
+      padding: .3rem;
+    }
+
+    .commentCount {
+      color: #999;
+    }
+
+    .commentList {
+
+      .moreRow {
+        text-align: right;
+        height: .8rem;
+        line-height: .8rem;
+        display: flex;
+        justify-content: right;
+
+        .moreButton {
+          display: block;
+          cursor: pointer;
+          font-size: .28rem;
+          line-height: .8rem;
+          color: #999;
+          margin-right: .3rem;
+        }
+      }
+    }
+  }
+
+  .userComment {
+    background-color: #FFF;
+    padding: .3rem;
+    display: flex;
+    margin-top: .3rem;
+
+    .commentAvatar {
+      width: 1rem;
+      height: 1rem;
+      border-radius: .6rem;
+      overflow: hidden;
+      margin-right: .2rem;
+      display: block;
+    }
+
+    .rightContent {
+      flex: 1;
+      height: inherit;
+      display: block;
+      background-color: #FFF;
+
+      .commentUser {
+        margin-bottom: .12rem;
+        display: block;
+      }
+
+      .rate {
+        display: block;
+        color: #00afc7;
+        margin-bottom: .12rem;
+      }
+
+      .commentText {
+        display: block;
+      }
+
+      .publishButton {
+        background-color: #00afc7;
+        color: #FFF;
+        border: none;
+        margin-top: 10px;
+        display: block;
+      }
+    }
+  }
+}

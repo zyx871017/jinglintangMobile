@@ -37,65 +37,9 @@ const Pagination = (props: IProps) => {
     }
   }
 
-  const renderLeftDot = () => {
-    if (totalPage < 7 || pageNo < 5) {
-      return null;
-    }
-    return <span style={{ marginLeft: 6 }}>...</span>;
-  }
-
-  const renderRightDot = () => {
-    if (totalPage < 7 || pageNo > totalPage - 4) {
-      return null;
-    }
-    return <span style={{ marginLeft: 6 }}>...</span>;
-  }
-
-  const getMiddleNumber = () => {
-    const result = [];
-    if (totalPage === 1) {
-      result.push(1);
-    } else if (totalPage < 8 && totalPage > 1) {
-      for (let i = 2; i < totalPage - 1; i++) {
-        result.push(i);
-      }
-    } else if (pageNo < 4) {
-      for (let i = 2; i <= 5; i++) {
-        result.push(i);
-      }
-    } else if (pageNo > totalPage - 3) {
-      for (let i = totalPage - 4; i < totalPage; i++) {
-        result.push(i);
-      }
-    } else {
-      for (let i = pageNo - 2; i <= pageNo + 2; i++) {
-        result.push(i);
-      }
-    }
-
-    return result;
-  }
-
-  const middleNoList = getMiddleNumber();
   return <div className={styles.pageContent}>
     {renderLastButton()}
-    <Link className={classNames({ [styles.pageButton]: true, [styles.active]: pageNo === 1 })} href="">1</Link>
-    {renderLeftDot()}
-    {middleNoList.map(no => <Link
-      key={no}
-      className={classNames({
-        [styles.pageButton]: true,
-        [styles.active]: pageNo === no
-      })}
-      href={`${baseUrl}?pageNo=${no}`}
-    >{no}</Link>)}
-    {renderRightDot()}
-    <Link
-      className={classNames({
-        [styles.pageButton]: true,
-        [styles.active]: pageNo === totalPage
-      })}
-      href={`${baseUrl}?pageNo=${totalPage}`}>{totalPage}</Link>
+    <span className={styles.pageText}>{pageNo} / {totalPage}</span>
     {renderNextButton()}
   </div>
 }

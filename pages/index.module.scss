@@ -2,6 +2,40 @@
   width: 100%;
   overflow: hidden;
 
+  .navContent {
+    display: flex;
+    justify-content: space-around;
+    margin-top: .2rem;
+    background-color: #FFF;
+    padding: .2rem 0;
+
+    .navButton {
+      width: 1.44rem;
+      height: 1.5rem;
+      align-items: center;
+      text-align: center;
+
+      .navIcon {
+        width: .96rem;
+        height: .96rem;
+        margin-left: .24rem;
+        margin-bottom: .2rem;
+
+        .navImage {
+          width: .96rem;
+          height: .96rem;
+          display: block;
+        }
+      }
+
+      .navText {
+        font-size: .28rem;
+        display: block;
+        color: #333;
+      }
+    }
+  }
+
   .rowCard {
     margin-top: .2rem;
 

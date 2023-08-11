@@ -1,36 +1,38 @@
 .commentItem {
   display: flex;
-  margin-top: 15px;
+  margin-top: .3rem;
   border-bottom: 1px solid #F0F0F0;
+  padding: 0 .3rem;
 
   .commentAvatar {
-    border-radius: 30px;
+    border-radius: .5rem;
     overflow: hidden;
-    width: 60px;
-    height: 60px;
-    margin-right: 20px;
+    width: 1rem;
+    height: 1rem;
+    margin-right: .2rem;
   }
 
   .rightContent {
     flex: 1;
 
     .username {
-      font-size: 14px;
-      line-height: 20px;
+      font-size: .28rem;
+      line-height: .4rem;
       color: #333;
-      margin-bottom: 6px;
+      margin-bottom: .1rem;
     }
 
     .infoRate {
       color: #00afc7;
-      font-size: 14px;
-      line-height: 20px;
+      font-size: .28rem;
+      line-height: .4rem;
     }
 
     .commentText {
-      margin-top: 10px;
-      font-size: 14px;
-      line-height: 20px;
+      margin-top: .14rem;
+      font-size: .28rem;
+      line-height: .4rem;
+      margin-bottom: .14rem;
       overflow: hidden;
       text-overflow: ellipsis;
       display: -webkit-box;
@@ -46,17 +48,18 @@
     }
 
     .collapseButton {
-      float: right;
       color: #999;
-      font-size: 12px;
-      line-height: 18px;
+      font-size: .24rem;
+      line-height: .36rem;
+      margin-bottom: .14rem;
       cursor: pointer;
+      text-align: right;
 
       .downIcon {
-        width: 12px;
-        height: 6px;
-        margin-left: 6px;
-        margin-top: -1px;
+        width: .24rem;
+        height: .12rem;
+        margin-left: .12rem;
+        margin-top: -0.02rem;
 
         &.iconOpening {
           transform: rotate(180deg);
@@ -64,16 +67,21 @@
       }
     }
 
-    .commentImage {
-      margin-right: 10px;
+    .imageList {
+      overflow-x: auto;
+      .commentImage {
+        margin-right: .1rem;
+        width: 1.6rem;
+        height: 1.6rem;
+      }
     }
 
     .commentTime {
-      margin-top: 12px;
+      margin-top: .24rem;
       color: #8c8c8c;
-      font-size: 12px;
-      line-height: 17px;
-      margin-bottom: 20px;
+      font-size: .24rem;
+      line-height: .34rem;
+      margin-bottom: .3rem;
     }
   }
 }

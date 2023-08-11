@@ -1,17 +1,16 @@
 .pageContent {
-  width: 1200px;
-  margin: 0 auto;
 
   .commentContent {
-    margin-top: 20px;
+    margin-top: .3rem;
     background-color: #FFF;
-    padding: 20px;
 
     .titleContent {
-      font-size: 16px;
+      font-size: .32rem;
       color: #333;
       font-weight: 700;
-      margin-bottom: 30px;
+      margin-bottom: .3rem;
+      border-bottom: .02rem solid #ddd;
+      padding: .3rem;
     }
 
     .commentCount {
@@ -22,12 +21,18 @@
 
       .moreRow {
         text-align: right;
-        margin-top: 10px;
+        height: .8rem;
+        line-height: .8rem;
+        display: flex;
+        justify-content: right;
 
         .moreButton {
+          display: block;
           cursor: pointer;
-          font-size: 14px;
+          font-size: .28rem;
+          line-height: .8rem;
           color: #999;
+          margin-right: .3rem;
         }
       }
     }

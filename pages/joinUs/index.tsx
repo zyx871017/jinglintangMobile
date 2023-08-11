@@ -15,13 +15,13 @@ const JoinUp: NextPage<IProps> = (props) => {
     <div className={styles.joinContent}>
       <Link href="/storePublish">
         <div className={styles.storeSettleButton}>
-          <Image width={200} height={200} alt="" src={storeImage} />
+          <Image className={styles.storeImage} alt="" src={storeImage} />
           <div className={styles.settledTitle}>商家入驻</div>
         </div>
       </Link>
       <Link href="/peoplePublish">
         <div className={styles.storeSettleButton}>
-          <Image width={200} height={200} alt="" src={peopleImage} />
+          <Image className={styles.storeImage} alt="" src={peopleImage} />
           <div className={styles.settledTitle}>个人加入</div>
         </div>
       </Link>

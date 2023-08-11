@@ -15,9 +15,7 @@ const CommentItem = (props: IProps) => {
     setOpening(!opening);
   }
   return <div key={comment.id} className={styles.commentItem}>
-    <div className={styles.commentAvatar}>
-      <Image width={60} height={60} alt="" src={comment.userAvatar}></Image>
-    </div>
+    <Image className={styles.commentAvatar} alt="" src={comment.userAvatar}></Image>
     <div className={styles.rightContent}>
       <div className={styles.username}>{comment.username}</div>
       <div className={styles.infoRate}>{comment.rate}分</div>
@@ -28,12 +26,12 @@ const CommentItem = (props: IProps) => {
       <div onClick={textCollapseChange} className={styles.collapseButton}>
         {opening ? '收起评价' : '展开评价'}
         <Image className={classNames({
-        [styles.downIcon]: true,
-        [styles.iconOpening]: opening
-      })} alt="" src={downIcon}></Image>
+          [styles.downIcon]: true,
+          [styles.iconOpening]: opening
+        })} alt="" src={downIcon}></Image>
       </div>
       <div className={styles.imageList}>
-        {comment.images.map((img: string, i: number) => <Image className={styles.commentImage} width={96} height={96} key={i} alt="" src={img}></Image>)}
+        {comment.images.map((img: string, i: number) => <Image className={styles.commentImage} key={i} alt="" src={img}></Image>)}
       </div>
       <div className={styles.commentTime}>{comment.commentTime}</div>
     </div>
