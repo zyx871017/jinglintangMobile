@@ -29,6 +29,7 @@
     "multiparty": "^4.2.3",
     "mysql2": "^3.5.2",
     "next": "13.4.12",
+    "qs": "^6.11.2",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "reflect-metadata": "^0.1.13",

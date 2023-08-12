@@ -1,54 +1,64 @@
 .pageContent {
-  width: 1200px;
-  margin: 0 auto;
 
   .searchContent {
     background-color: #FFF;
-    padding: 20px;
+    padding: .3rem;
+    font-size: .28rem;
+    color: #666;
+    border-bottom: .02rem solid #f0f0f0;
   }
 
   .listContent {
     background-color: #FFF;
-    margin-top: 20px;
 
     .topicContent {
       display: flex;
-      padding: 15px 20px;
-      border-bottom: 1px solid #F0F0F0;
+      padding: .3rem .4rem;
+      border-bottom: 0.02rem solid #F0F0F0;
+      color: #999;
 
       &:hover {
         background-color: #f8f8f8;
       }
 
       .imageContent {
-        width: 175px;
-        height: 130px;
-        margin-right: 16px;
+        width: 1.5rem;
+        height: 1.5rem;
+        margin-right: .3rem;
         cursor: pointer;
+        overflow: hidden;
+
+        img {
+          width: 1.5rem;
+          height: 1.5rem;
+        }
       }
 
       .infoRow {
-        height: 26px;
-        line-height: 26px;
+        height: .52rem;
+        line-height: .52rem;
+        display: flex;
+        font-size: .24rem;
       }
 
       .topicTitle {
         color: #333;
-        font-size: 16px;
-        height: 26px;
-        line-height: 26px;
+        font-size: .32rem;
+        height: .52rem;
+        line-height: .52rem;
         cursor: pointer;
       }
 
       .infoRate {
-        font-size: 14px;
+        font-size: .28rem;
         color: #00afc7;
-        margin-right: 10px;
+        margin-right: .2rem;
+        display: block;
       }
 
       .infoComment,
       .infoAddress {
-        font-size: 12px;
+        font-size: .24rem;
         color: #999;
         cursor: pointer;
       }

@@ -33,7 +33,9 @@ const PeoplePublish: NextPage = () => {
         <Input placeholder="请输入QQ" />
       </Form.Item>
     </Form>
-    <Button className={styles.publishButton} onClick={confirmButton}>确认发布</Button>
+    <div className={styles.buttonContent}>
+      <Button className={styles.publishButton} onClick={confirmButton}>确认发布</Button>
+    </div>
   </div>
 }
 

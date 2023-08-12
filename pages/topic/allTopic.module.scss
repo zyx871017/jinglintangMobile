@@ -47,14 +47,13 @@
     }
   }
 
-
   .listContent {
     background-color: #FFF;
 
     .topicContent {
       display: flex;
       padding: .3rem .4rem;
-      border-bottom: 1px solid #F0F0F0;
+      border-bottom: 0.02rem solid #F0F0F0;
       color: #999;
 
       &:hover {
@@ -99,7 +98,6 @@
       .infoComment,
       .infoAddress {
         font-size: .24rem;
-        list-style: .52rem;
         color: #999;
         cursor: pointer;
       }

@@ -73,7 +73,9 @@ const StorePublish: NextPage<IProps> = (props) => {
         </Form.Item>
       </Form.Item>
     </Form>
-    <Button className={styles.publishButton} onClick={confirmButton}>确认发布</Button>
+    <div className={styles.buttonContent}>
+      <Button className={styles.publishButton} onClick={confirmButton}>确认发布</Button>
+    </div>
   </div>
 }
 

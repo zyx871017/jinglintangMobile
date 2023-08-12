@@ -10,7 +10,9 @@ import { CaretRightOutlined } from "@ant-design/icons";
 import { useState } from "react";
 
 export async function getServerSideProps(ctx: any) {
-  const query = ctx.query
+  const query = ctx.query;
+  const tagQuery: number = query.tag ? Number(query.tag) : 0;
+  const currentTag = tagList.find(tag => tag.id === tagQuery);
   let pageNo = 1;
   if (!isNaN(Number(query.pageNo))) {
     pageNo = Number(query.pageNo);
@@ -19,7 +21,9 @@ export async function getServerSideProps(ctx: any) {
     props: {
       tagList,
       allTopicList,
-      pageNo
+      pageNo,
+      tagStr: currentTag?.title || '不限',
+      tagId: currentTag?.id || ''
     }
   }
 }
@@ -29,17 +33,19 @@ interface IProps {
   allTopicList: topicType[];
   total: number;
   pageNo: number;
+  tagStr: string;
+  tagId: string;
 }
 
 const AllTopic: NextPage<IProps> = (props) => {
-  const { tagList, total = 212, pageNo = 5 } = props;
+  const { tagList, total = 212, pageNo = 5, tagStr, tagId } = props;
   const [showFilter, setShowFilter] = useState(false);
 
   return <div className={styles.pageContent}>
     <div className={styles.filterContent}>
       <div className={styles.currentTag}>
         <CaretRightOutlined className={styles.currentTagIcon} />
-        <span onClick={() => setShowFilter(!showFilter)} className={styles.currentTagText}>不限</span>
+        <span onClick={() => setShowFilter(!showFilter)} className={styles.currentTagText}>{tagStr}</span>
       </div>
       <div className={classNames({
         [styles.tagSelect]: true,
@@ -71,7 +77,7 @@ const AllTopic: NextPage<IProps> = (props) => {
         </div>
       </Link>)}
     </div>
-    <Pagination total={total} pageNo={pageNo} onChange={() => { }} />
+    <Pagination query={{ tag: tagId }} total={total} pageNo={pageNo} onChange={() => { }} />
   </div >;
 }
 

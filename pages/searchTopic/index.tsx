@@ -62,7 +62,7 @@ const SearchTopic: NextPage<IProps> = (props) => {
         </div>
       </div>)}
     </div>
-    <Pagination total={total} pageNo={pageNo} onChange={() => { }} />
+    <Pagination query={{}} total={total} pageNo={pageNo} onChange={() => { }} />
   </div>
 }
 
