@@ -38,7 +38,7 @@ const CommentList: NextPage<IProps> = (props) => {
         {commentList.map(comment => <CommentItem key={comment.id} comment={comment} />)}
       </div>
     </div>
-    <Pagination baseUrl="/commentList" total={total} pageNo={pageNo} onChange={() => { }} />
+    <Pagination query={{}} baseUrl="/commentList" total={total} pageNo={pageNo} onChange={() => { }} />
   </div>
 }
 
