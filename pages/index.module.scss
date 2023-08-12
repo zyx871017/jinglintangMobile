@@ -166,6 +166,9 @@
                 font-size: .22rem;
                 color: #999;
                 float: right;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                white-space: nowrap;
               }
             }
           }
@@ -284,6 +287,9 @@
               height: .28rem;
               font-size: .22rem;
               line-height: .28rem;
+              overflow: hidden;
+              text-overflow: ellipsis;
+              white-space: nowrap;
             }
           }
         }
@@ -356,6 +362,9 @@
                 font-size: .22rem;
                 line-height: .28rem;
                 float: left;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                white-space: nowrap;
               }
             }
           }

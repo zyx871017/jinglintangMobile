@@ -2,12 +2,14 @@ import { NextPage } from "next";
 import Link from "next/link";
 import Image from "next/image";
 import styles from './allTopic.module.scss';
-import { allTopicList, tagList } from "@/constant/allTopicData";
+import { tagList } from "@/constant/allTopicData";
 import classNames from "classnames";
 import { topicType } from "..";
 import Pagination from "@/components/Pagination";
 import { CaretRightOutlined } from "@ant-design/icons";
 import { useState } from "react";
+import request from "@/service/fetch";
+import { fallImage } from "@/constant";
 
 export async function getServerSideProps(ctx: any) {
   const query = ctx.query;
@@ -17,11 +19,21 @@ export async function getServerSideProps(ctx: any) {
   if (!isNaN(Number(query.pageNo))) {
     pageNo = Number(query.pageNo);
   }
+  const params = {
+    isStaff: false,
+    pageNo,
+    pageSize: 10,
+    tagId: currentTag?.id || ''
+  }
+  const data = await request.post('http://bj.jinglintang.club:8000/jlt-api-web/topic/page', params);
+  console.log(data);
+  const { records, total, current, } = data.data;
   return {
     props: {
       tagList,
-      allTopicList,
-      pageNo,
+      allTopicList: records,
+      total,
+      pageNo: current,
       tagStr: currentTag?.title || '不限',
       tagId: currentTag?.id || ''
     }
@@ -38,7 +50,7 @@ interface IProps {
 }
 
 const AllTopic: NextPage<IProps> = (props) => {
-  const { tagList, total = 212, pageNo = 5, tagStr, tagId } = props;
+  const { tagList, total = 212, pageNo = 5, tagStr, tagId, allTopicList } = props;
   const [showFilter, setShowFilter] = useState(false);
 
   return <div className={styles.pageContent}>
@@ -63,13 +75,13 @@ const AllTopic: NextPage<IProps> = (props) => {
     <div className={styles.listContent}>
       {allTopicList.map(topic => <Link href={`/topic/${topic.id}`} key={topic.id} className={styles.topicContent}>
         <div className={styles.imageContent}>
-          <Image alt="" src={topic.image}></Image>
+          <img alt="" src={topic.imgUrl || fallImage}></img>
         </div>
         <div className={styles.rightContent}>
           <div className={styles.topicTitle}>{topic.title}</div>
           <div className={styles.infoRow}>
-            <span className={styles.infoRate}>{topic.rate}分</span>
-            <span>{topic.commentCount}条评价</span>
+            <span className={styles.infoRate}>{topic.score}分</span>
+            <span>{topic.commentTotal}条评价</span>
           </div>
           <div className={styles.infoRow}>
             <span className={styles.infoAddress}>{topic.address}</span>
