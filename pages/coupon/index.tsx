@@ -73,7 +73,7 @@ const Coupon: NextPage<IProps> = (props: IProps) => {
         </div>
       </Link>)}
     </div>
-    <Pagination baseUrl="/coupon" total={total} pageNo={pageNo} onChange={() => { }} />
+    <Pagination query={{}} baseUrl="/coupon" total={total} pageNo={pageNo} onChange={() => { }} />
   </div>
 }
 
