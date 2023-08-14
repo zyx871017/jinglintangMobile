@@ -1,10 +1,12 @@
 import { NextPage } from "next";
 import styles from './index.module.scss';
 import { Button, Input } from "antd";
+import { useRouter } from "next/router";
 
 const Login: NextPage = () => {
+  const router = useRouter();
 
-  const gotoSignUp = () => { }
+  const gotoSignUp = () => { router.push('/signUp') }
   const confirmLogin = () => { }
   return <div className={styles.pageContent}>
     <div className={styles.loginTitle}>用户名</div>

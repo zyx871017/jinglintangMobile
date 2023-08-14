@@ -1,20 +1,22 @@
+import { useState } from "react";
+import classNames from "classnames";
 import { NextPage } from "next";
 import Link from "next/link";
-import Image from "next/image";
+import { Image as AntImage } from 'antd';
 import styles from './allTopic.module.scss';
-import { tagList } from "@/constant/allTopicData";
-import classNames from "classnames";
 import { topicType } from "..";
 import Pagination from "@/components/Pagination";
 import { CaretRightOutlined } from "@ant-design/icons";
-import { useState } from "react";
 import request from "@/service/fetch";
 import { fallImage } from "@/constant";
+import { fetchTagList } from "@/service/topicDetail";
 
 export async function getServerSideProps(ctx: any) {
   const query = ctx.query;
   const tagQuery: number = query.tag ? Number(query.tag) : 0;
-  const currentTag = tagList.find(tag => tag.id === tagQuery);
+  const tagListData = await fetchTagList();
+  const tagList = tagListData.data;
+  const currentTag = tagList.find((tag: any) => tag.id === tagQuery);
   let pageNo = 1;
   if (!isNaN(Number(query.pageNo))) {
     pageNo = Number(query.pageNo);
@@ -26,11 +28,10 @@ export async function getServerSideProps(ctx: any) {
     tagId: currentTag?.id || ''
   }
   const data = await request.post('http://bj.jinglintang.club:8000/jlt-api-web/topic/page', params);
-  console.log(data);
   const { records, total, current, } = data.data;
   return {
     props: {
-      tagList,
+      tagList: tagListData.data,
       allTopicList: records,
       total,
       pageNo: current,
@@ -41,7 +42,7 @@ export async function getServerSideProps(ctx: any) {
 }
 
 interface IProps {
-  tagList: { id: number, title: string }[];
+  tagList: { id: number, name: string }[];
   allTopicList: topicType[];
   total: number;
   pageNo: number;
@@ -69,13 +70,13 @@ const AllTopic: NextPage<IProps> = (props) => {
           key={tag.id}
           onClick={() => setShowFilter(false)}
           href={`/topic/allTopic?tag=${tag.id}`}
-        >{tag.title}</Link>)}
+        >{tag.name}</Link>)}
       </div>
     </div>
     <div className={styles.listContent}>
       {allTopicList.map(topic => <Link href={`/topic/${topic.id}`} key={topic.id} className={styles.topicContent}>
         <div className={styles.imageContent}>
-          <img alt="" src={topic.imgUrl || fallImage}></img>
+          <AntImage preview={false} fallback={fallImage} alt="" src={topic.imgUrl || fallImage}></AntImage>
         </div>
         <div className={styles.rightContent}>
           <div className={styles.topicTitle}>{topic.title}</div>

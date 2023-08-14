@@ -5,10 +5,8 @@ const nextConfig = removeImports({
   images: {
     remotePatterns: [
       {
-        protocol: 'http',
-        hostname: 'res.dushitiyan.weilaicdn.com',
-        port: '',
-        pathname: '/**',
+        protocol: 'https',
+        hostname: 's3.ap-southest-1.amazonaws.com',
       },
     ],
   }

@@ -3,6 +3,7 @@ import { commentList } from '@/constant/commentListData';
 import styles from './index.module.scss';
 import CommentItem from "@/components/CommentItem";
 import Pagination from "@/components/Pagination";
+import { fetchTopicCommentList } from "@/service/topicDetail";
 
 export async function getServerSideProps(ctx: any) {
   const query = ctx.query;
@@ -11,11 +12,14 @@ export async function getServerSideProps(ctx: any) {
   if (!isNaN(Number(query.pageNo))) {
     pageNo = Number(query.pageNo);
   }
+  const data: any = await fetchTopicCommentList({ pageNo, pageSize: 10 });
+  console.log(data);
+  const { records, total } = data;
 
   return {
     props: {
-      commentList,
-      total: 221,
+      commentList: records,
+      total,
       pageNo
     }
   }

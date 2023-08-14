@@ -100,7 +100,7 @@ export default function Home(props: IProps) {
           <div className={styles.cardContent}>
             {hotTopicList.map(topic => <Link href={`/topic/${topic.id}`} className={styles.topicContent} key={topic.id}>
               <div className={styles.topicImage}>
-                <AntImage fallback={fallImage} preview={false} width={170} height={96} src={topic.imgUrl} alt=""></AntImage>
+                <AntImage fallback={fallImage} preview={false} width="3.32rem" height="1.92rem" src={topic.imgUrl} alt=""></AntImage>
               </div>
               <div className={styles.topicInfoContent}>
                 <div className={styles.title}>{topic.title}</div>
@@ -131,7 +131,7 @@ export default function Home(props: IProps) {
           <div className={styles.cardContent}>
             {mastTopicList.map(topic => <Link href={`/topic/${topic.id}`} className={styles.topicContent} key={topic.id}>
               <div className={styles.topicImage}>
-              <AntImage fallback={fallImage} preview={false} width={170} height={96} src={topic.imgUrl} alt=""></AntImage>
+                <AntImage fallback={fallImage} preview={false} width="3.32rem" height="1.92rem" src={topic.imgUrl} alt=""></AntImage>
               </div>
               <div className={styles.topicInfoContent}>
                 <div className={styles.title}>{topic.title}</div>
@@ -160,7 +160,7 @@ export default function Home(props: IProps) {
         </div>
         <div className={styles.topicContent}>
           <div className={styles.mainCard}>
-            <img className={styles.mainImage} src={mainTopic.imgUrl || fallImage} alt="" ></img>
+            <AntImage fallback={fallImage} preview={false} width="100%" height="4rem" src={mainTopic.imgUrl || fallImage} alt="" ></AntImage>
             <div className={styles.mainCardInfo}>
               <div className={styles.mainCardTitle}>{mainTopic.title}</div>
               <div className={styles.mainInfoRow}>
@@ -174,7 +174,7 @@ export default function Home(props: IProps) {
           </div>
           <div className={styles.otherTopicContent}>
             {otherTopicList.map(topic => <Link href={`/topic/${topic.id}`} key={topic.id} className={styles.otherCard}>
-              <img className={styles.otherCardImage} src={topic.imgUrl || fallImage} alt="" ></img>
+              <AntImage preview={false} width="3.32rem" height="1.92rem" src={topic.imgUrl || fallImage} alt="" ></AntImage>
               <div className={styles.otherCardInfo}>
                 <div className={styles.otherCardTitle}>{topic.title}</div>
                 <div className={styles.otherInfoRow}>

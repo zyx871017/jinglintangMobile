@@ -24,6 +24,7 @@
       width: 100vw;
       overflow-y: auto;
       transition: left .3s linear;
+      z-index: 10;
 
       &.hide {
         left: -100vw;
