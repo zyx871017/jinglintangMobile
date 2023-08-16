@@ -1,0 +1,46 @@
+.pageContent {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 1rem .3rem;
+  background-color: #FFF;
+
+  .successImage {
+    width: 1.42rem;
+    height: 1.42rem;
+    margin: 0 auto;
+    display: block;
+  }
+
+  .successTitle {
+    font-size: .48rem;
+    color: rgba(0, 0, 0, .88);
+    text-align: center;
+    margin-top: .48rem;
+  }
+
+  .successNote {
+    font-size: .28rem;
+    text-align: center;
+    margin-top: .3rem;
+    line-height: .4rem;
+    color: rgba(0, 0, 0, .45);
+  }
+
+  .buttonContent {
+    text-align: center;
+    display: flex;
+    margin-top: .4rem;
+
+    .backButton {
+      height: .64rem;
+      padding: 0 .3rem;
+      line-height: .64rem;
+      color: #FFF;
+      background-color: #00afc7;
+      font-size: .28rem;
+      display: inline-block;
+      border-radius: .12rem;
+      margin: 0 auto;
+    }
+  }
+}

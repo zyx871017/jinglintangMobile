@@ -37,7 +37,6 @@ const EditTopicDrawer = (props: IProps) => {
   };
 
   const fieldsChange = (value: any) => {
-    console.log(value);
   }
 
   return <Drawer

@@ -1,0 +1,52 @@
+.pageContent {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: .8rem .3rem;
+  background-color: #FFF;
+
+  .userComment {
+    background-color: #FFF;
+    display: flex;
+
+    .commentAvatar {
+      width: 1rem;
+      height: 1rem;
+      border-radius: .6rem;
+      overflow: hidden;
+      margin-right: .2rem;
+      display: block;
+    }
+
+    .rightContent {
+      flex: 1;
+      height: inherit;
+      display: block;
+      background-color: #FFF;
+
+      .commentUser {
+        margin-bottom: .12rem;
+        display: block;
+        font-size: .32rem;
+        color: #333;
+      }
+
+      .rate {
+        display: block;
+        color: #00afc7;
+        margin-bottom: .2rem;
+      }
+
+      .commentText {
+        display: block;
+      }
+
+      .publishButton {
+        background-color: #00afc7;
+        color: #FFF;
+        border: none;
+        margin-top: .3rem;
+        display: block;
+      }
+    }
+  }
+}

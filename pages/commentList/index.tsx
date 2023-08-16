@@ -1,5 +1,4 @@
 import { NextPage } from "next";
-import { commentList } from '@/constant/commentListData';
 import styles from './index.module.scss';
 import CommentItem from "@/components/CommentItem";
 import Pagination from "@/components/Pagination";
@@ -12,9 +11,8 @@ export async function getServerSideProps(ctx: any) {
   if (!isNaN(Number(query.pageNo))) {
     pageNo = Number(query.pageNo);
   }
-  const data: any = await fetchTopicCommentList({ pageNo, pageSize: 10 });
-  console.log(data);
-  const { records, total } = data;
+  const res: any = await fetchTopicCommentList({ pageNo, pageSize: 10 });
+  const { records, total } = JSON.parse(JSON.stringify(res.data));
 
   return {
     props: {
@@ -39,7 +37,7 @@ const CommentList: NextPage<IProps> = (props) => {
         <span className={styles.title}>网友评价</span>
       </div>
       <div className={styles.commentList}>
-        {commentList.map(comment => <CommentItem key={comment.id} comment={comment} />)}
+        {commentList.map(comment => <CommentItem key={comment.commentContentVo.id} comment={comment} />)}
       </div>
     </div>
     <Pagination query={{}} baseUrl="/commentList" total={total} pageNo={pageNo} onChange={() => { }} />

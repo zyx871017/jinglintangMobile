@@ -7,9 +7,7 @@ import Image from "next/image";
 import styles from './detail.module.scss';
 import { Button, Input, Rate, Image as AntImage } from "antd";
 import CommentItem from "@/components/CommentItem";
-import { commentList, topicDetail, topicList } from "@/constant/topicDetailData";
 import hotImage from '@/public/hotImage.jpeg';
-import { topicType } from "..";
 import request from "@/service/fetch";
 import { fetchTopicCommentList } from "@/service/topicDetail";
 
@@ -17,11 +15,11 @@ export async function getServerSideProps(ctx: any) {
   const id = Number(ctx.query.id);
   const data = await request.post('http://bj.jinglintang.club:8000/jlt-api-web/topic/detail', { id });
   const { content } = data.data;
-  const contentList = content.split('<p><span>');
+  const contentList = content?.split('<p><span>') || [];
   const detailList: string[] = [];
   contentList.forEach((str: string) => {
     const replaceStr = str.replace(/<\/span><\/p>/, '');
-    const splitList = replaceStr.split('：&nbsp;');
+    const splitList = replaceStr?.split('：&nbsp;') || [];
     splitList.forEach((s: string) => detailList.push(s));
   });
   const topicDetail = {
@@ -47,7 +45,6 @@ export async function getServerSideProps(ctx: any) {
   const commentList = commentListData.data.records;
   return {
     props: {
-      topicList,
       topicDetail,
       commentList: JSON.parse(JSON.stringify(commentList)),
       id
@@ -57,7 +54,6 @@ export async function getServerSideProps(ctx: any) {
 
 interface IProps {
   id: number;
-  topicList: topicType[];
   topicDetail: {
     title: string;
     score: number
@@ -126,6 +122,7 @@ const TopicDetail: NextPage<IProps> = (props) => {
         <div className={styles.titleContent}>
           <span className={styles.title}>网友评价</span>
           <span className={styles.commentCount}>({topicDetail.commentCount})</span>
+          <Link href={`/writeComment/${id}`} className={styles.editComment}>写评价</Link>
         </div>
         <div className={styles.commentList}>
           {commentList.map(comment => <CommentItem key={comment.commentContentVo.id} comment={comment} />)}

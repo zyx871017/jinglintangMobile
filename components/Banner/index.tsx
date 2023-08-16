@@ -13,7 +13,6 @@ const Banner = (props: IProps) => {
   useEffect(() => {
     const interval = setInterval(() => {
       if (activeIndex < data.length - 1) {
-        console.log(activeIndex);
         setActiveIndex(activeIndex + 1);
       } else {
         setActiveIndex(0);

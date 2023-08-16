@@ -1,10 +1,10 @@
 import { NextPage } from "next";
 import Link from "next/link";
-import Image from 'next/image';
+import { Image as AntImage } from 'antd';
 import styles from './index.module.scss';
-import { allTopicList } from "@/constant/allTopicData";
 import { topicType } from "..";
 import Pagination from "@/components/Pagination";
+import { fetchAllTopic } from "@/service/allTopic";
 
 export async function getServerSideProps(ctx: any) {
   const query = ctx.query
@@ -13,12 +13,19 @@ export async function getServerSideProps(ctx: any) {
     pageNo = Number(query.pageNo);
   }
   const search = query.search;
+  const data = await fetchAllTopic({
+    pageNo,
+    pageSize: 10,
+    title: search,
+    isStaff: false
+  });
+  const { records, total } = data.data;
   return {
     props: {
-      allTopicList,
+      allTopicList: records,
       pageNo,
       search,
-      total: 221
+      total
     }
   }
 }
@@ -41,7 +48,7 @@ const SearchTopic: NextPage<IProps> = (props) => {
       {allTopicList.map(topic => <div key={topic.id} className={styles.topicContent}>
         <div className={styles.imageContent}>
           <Link href={`/topic/${topic.id}`}>
-            <Image width={175} height={130} alt="" src={topic.image}></Image>
+            <AntImage preview={false} width="1.5rem" height="1.5rem" alt="" src={topic.imgUrl}></AntImage>
           </Link>
         </div>
         <div className={styles.rightContent}>
@@ -49,9 +56,9 @@ const SearchTopic: NextPage<IProps> = (props) => {
             <div className={styles.topicTitle}>{topic.title}</div>
           </Link>
           <div className={styles.infoRow}>
-            <span className={styles.infoRate}>{topic.rate}分</span>
+            <span className={styles.infoRate}>{topic.score}分</span>
             <Link href={`/topic/${topic.id}`}>
-              <span className={styles.infoComment}>{topic.commentCount}条评价</span>
+              <span className={styles.infoComment}>{topic.commentTotal}条评价</span>
             </Link>
           </div>
           <div className={styles.infoRow}>

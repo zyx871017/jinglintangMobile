@@ -28,7 +28,6 @@ export async function getServerSideProps(ctx: any) {
     tagId: currentTag?.id || ''
   }
   const data = await request.post('http://bj.jinglintang.club:8000/jlt-api-web/topic/page', params);
-  console.log(data);
   const { records, total, current, } = data.data;
   return {
     props: {
