@@ -35,7 +35,7 @@ export async function getServerSideProps(ctx: any) {
       allTopicList: records,
       total,
       pageNo: current,
-      tagStr: currentTag?.title || '不限',
+      tagStr: currentTag?.name || '不限',
       tagId: currentTag?.id || ''
     }
   }

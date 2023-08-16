@@ -67,6 +67,7 @@
         margin-right: .3rem;
         cursor: pointer;
         overflow: hidden;
+        flex-shrink: 0;
 
         img {
           width: 1.5rem;
@@ -81,12 +82,19 @@
         font-size: .24rem;
       }
 
+      .rightContent {
+        overflow: hidden;
+      }
+
       .topicTitle {
         color: #333;
         font-size: .32rem;
         height: .52rem;
         line-height: .52rem;
         cursor: pointer;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
       }
 
       .infoRate {
