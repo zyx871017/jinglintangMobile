@@ -79,7 +79,7 @@ const StorePublish: NextPage<IProps> = (props) => {
       </Form.Item>
       <Form.Item className={styles.inputItem}>
         <Form.Item labelCol={{ span: 2 }} className={styles.inputItem} label="简介" name="description">
-          <Input.TextArea placeholder="请输入电话联系方式" />
+          <Input.TextArea placeholder="请输入商铺简介" />
         </Form.Item>
       </Form.Item>
     </Form>
