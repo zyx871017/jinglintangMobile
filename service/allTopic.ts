@@ -8,5 +8,5 @@ interface IFTopicCommentList {
   pageNo: number;
 }
 export async function fetchAllTopic(params: IFTopicCommentList) {
-  return request.post('http://bj.jinglintang.club:8000/jlt-api-web/topic/page', params);
+  return request.post(`http://${process.env.SERVICE_HOST}:${process.env.SERVICE_PORT}/jlt-api-web/topic/page`, params);
 }

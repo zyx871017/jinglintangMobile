@@ -13,7 +13,7 @@ import { fetchTopicCommentList } from "@/service/topicDetail";
 
 export async function getServerSideProps(ctx: any) {
   const id = Number(ctx.query.id);
-  const data = await request.post('http://bj.jinglintang.club:8000/jlt-api-web/topic/detail', { id });
+  const data = await request.post(`http://${process.env.SERVICE_HOST}:${process.env.SERVICE_PORT}/jlt-api-web/topic/detail`, { id });
   const { content } = data.data;
   const contentList = content?.split('<p><span>') || [];
   const detailList: string[] = [];

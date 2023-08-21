@@ -12,5 +12,5 @@ interface IFAddInfo {
   type: number;
 }
 export async function fetchAddInfo(params: IFAddInfo) {
-  return request.post('http://bj.jinglintang.club:8000/jlt-api-web/shop/create', params).catch(e => e);
+  return request.post(`http://${process.env.SERVICE_HOST}:${process.env.SERVICE_PORT}/jlt-api-web/shop/create`, params).catch(e => e);
 }

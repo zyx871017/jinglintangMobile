@@ -6,9 +6,9 @@ interface IFTopicCommentList {
   pageNo: number;
 }
 export async function fetchTopicCommentList(params: IFTopicCommentList) {
-  return request.post('http://bj.jinglintang.club:8000/jlt-api-web/topic/comment/page', params);
+  return request.post(`http://${process.env.SERVICE_HOST}:${process.env.SERVICE_PORT}/jlt-api-web/topic/comment/page`, params);
 }
 
 export async function fetchTagList() {
-  return request.post('http://bj.jinglintang.club:8000/jlt-api-web/topic/tag/list');
+  return request.post(`http://${process.env.SERVICE_HOST}:${process.env.SERVICE_PORT}/jlt-api-web/topic/tag/list`);
 }
