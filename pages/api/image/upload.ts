@@ -8,19 +8,6 @@ async function upload(req: NextApiRequest, res: NextApiResponse) {
   form.parse(req, (a, b, c) => {
     console.log(a, b, c);
   });
-  // const client = new S3Client({ region: 'ap-southeast-1' });
-  // const command = new PutObjectCommand({
-  //   Bucket: 'jinglintang.club.fun.images',
-  //   Key: 'jinglintang/test.jpeg',
-  //   Body: fileStream,
-  //   ACL: 'public-read'
-  // });
-  // const data = await client.send(command);
-  // const getCommand = new GetObjectCommand({
-  //   Bucket: 'jinglintang.club.fun.images',
-  //   Key: 'jinglintang/test.jpeg'
-  // })
-  // const getData = await client.send(getCommand);
   res.status(200).json({ data: '', code: 0, msg: 'success' });
 }
 
