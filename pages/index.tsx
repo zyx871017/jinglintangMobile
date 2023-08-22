@@ -32,7 +32,7 @@ interface IProps {
 }
 
 export async function getServerSideProps() {
-  const data = await request.get(`http://${process.env.SERVICE_HOST}:${process.env.SERVICE_PORT}/jlt-api-web/`);
+  const data = await request.get(`http://${process.env.SERVICE_HOST}/jlt-api-web/`);
   const { hot: hotTopicList, recommend: mastTopicList, bottom: recommendList } = data.data;
   return {
     props: {
