@@ -27,7 +27,7 @@ export async function getServerSideProps(ctx: any) {
     pageSize: 10,
     tagId: currentTag?.id || ''
   }
-  const data = await request.post(`http://${process.env.SERVICE_HOST}:${process.env.SERVICE_PORT}/jlt-api-web/topic/page`, params);
+  const data = await request.post(`http://${process.env.SERVICE_HOST}/jlt-api-web/topic/page`, params);
   const { records, total, current, } = data.data;
   return {
     props: {
