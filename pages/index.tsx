@@ -2,11 +2,8 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { RightOutlined } from '@ant-design/icons'
 import { Image as AntImage } from 'antd';
-import hotImage from '@/public/hotImage.jpeg';
 import Banner from '@/components/Banner';
 import styles from './index.module.scss';
-import bannerImg from '@/public/bannerImg.jpeg';
-import bannerImg1 from '@/public/bannerImg1.jpeg';
 import hotIcon from '@/public/hot.png';
 import mastIcon from '@/public/mast.png';
 import allTopicImage from '@/public/allTopic.png';
@@ -47,13 +44,7 @@ export default function Home(props: IProps) {
   const { hotTopicList, mastTopicList, recommendList: [mainTopic, ...otherTopicList] } = props;
   const data = [{
     title: '测试',
-    image: bannerImg
-  }, {
-    title: '测试2',
-    image: bannerImg1
-  }, {
-    title: '测试3',
-    image: bannerImg1
+    image: 'https://s3.ap-southeast-1.amazonaws.com/jinglintang.club.fun.images/public/2023/08/24/138551692866304.jpg'
   }]
 
   return (

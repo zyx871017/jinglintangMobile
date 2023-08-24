@@ -1,10 +1,10 @@
-import Image, { StaticImageData } from "next/image";
+import { Image } from "antd";
 import classNames from 'classnames';
 import styles from './index.module.scss';
 import { useEffect, useState } from "react";
 
 interface IProps {
-  data: { title: string; image: StaticImageData }[]
+  data: { title: string; image: string }[]
 }
 
 const Banner = (props: IProps) => {
@@ -25,7 +25,7 @@ const Banner = (props: IProps) => {
       [styles.bannerItem]: true,
       [styles.active]: activeIndex === index
     })} key={item.title}>
-      <Image layout="fixed" className={styles.bannerImage} alt="" src={item.image} />
+      <Image width="100%" preview={false} className={styles.bannerImage} alt="" src={item.image} />
     </div>)}
     <div className={styles.bannerDot}>
       {data.map((_, index) => <i key={index} className={classNames({
