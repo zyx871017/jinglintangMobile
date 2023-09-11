@@ -22,6 +22,19 @@ export default function App({ Component, pageProps }: AppProps) {
           </Head>
           <Script src="/response.js"></Script>
           <Layout>
+            <Script async src="https://www.googletagmanager.com/gtag/js?id=G-MKZCGKP2ZP"></Script>
+            <Script
+              id="GA4"
+              strategy='afterInteractive'
+              dangerouslySetInnerHTML={{
+                __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'G-MKZCGKP2ZP');
+              `
+              }}
+            />
             <Component {...pageProps} />
           </Layout>
         </>
